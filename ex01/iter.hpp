@@ -10,5 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef ITER_HPP
+#define ITER_HPP
+
+#include <iostream>
+
 template <typename T>
-void iter(T arr[], size_t len, )
+void print_i(T &t)
+{
+  std::cout << t << std::endl;
+}
+
+// const T
+template <typename T>
+void print(const T &t)
+{
+  std::cout << t << std::endl;
+}
+
+template <typename T, typename F>
+void iter(T *arr, size_t len, F func)
+{
+  for (size_t i = 0; i < len; i++)
+    func(arr[i]);
+}
+
+#endif

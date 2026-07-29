@@ -10,12 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef WHATEVER_HPP
+#define WHATEVER_HPP
+
 template <typename T>
-void Swpas(T &t1, T &t2)
+void swap(T &t1, T &t2)
 {
-    T temp = &t1;
-    &t1 = &t2;
-    &t2 = temp;
+    T temp = t1;
+    t1 = t2;
+    t2 = temp;
 }
 
 template <typename T>
@@ -30,3 +33,4 @@ const T &max(T const &t1, T const &t2)
    return (t1 <= t2) ? t2 : t1;
 }
 
+#endif
