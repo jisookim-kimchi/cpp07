@@ -1,6 +1,6 @@
 #include "Array.hpp"
 
-int main (void)
+int main (void) //184 bytes sub $0xb8, %rsp
 {
     Array<int> arr = {0,1,2};
 

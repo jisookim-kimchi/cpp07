@@ -10,3 +10,36 @@
 #                                                                              #
 # **************************************************************************** #
 
+NAME = ex00
+
+CXX = c++
+
+CXX_FLAGS = -g -Wall -Wextra -Werror -std=c++17
+
+HEADER = whatever.hpp
+
+SRCS = main.cpp
+OBJ_DIR = obj_dir
+OBJS = $(OBJ_DIR)/$(SRCS:.cpp=.o)
+
+$(OBJS) : $(SRCS) $(HEADER)
+	mkdir -p $(OBJ_DIR)
+	$(CXX) $(CXX_FLAGS) -c $< -o $@
+
+$(NAME) : $(OBJS)
+	$(CXX) $(OBJS) -o $(NAME)
+
+all : $(NAME)
+
+clean :
+	rm -f $(OBJS)
+
+fclean : clean
+	rm -f $(NAME)
+
+re : fclean all
+
+gdb : $(NAME)
+		gdb -ex "break main" -ex "layout split" ./$(NAME)
+
+.PHONY : all clean fclean re gdb

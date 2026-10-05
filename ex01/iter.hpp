@@ -16,21 +16,17 @@
 #include <iostream>
 
 template <typename T>
-void print_i(T &t)
-{
-  std::cout << t << std::endl;
-}
-
-// const T
-template <typename T>
 void print(const T &t)
 {
   std::cout << t << std::endl;
 }
 
+
 template <typename T, typename F>
 void iter(T *arr, size_t len, F func)
 {
+  if (len == 0 || arr == nullptr)
+    return ;
   for (size_t i = 0; i < len; i++)
     func(arr[i]);
 }
