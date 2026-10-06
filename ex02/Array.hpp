@@ -97,8 +97,7 @@ Array<T>::Array(const Array &arr) : t(nullptr), n(0)
 template <typename T>
 Array<T>::~Array(void)
 {
-    if (this->t && this->n > 0)
-        delete[] this->t;
+    delete[] this->t;
 }
 
 template <typename T>
